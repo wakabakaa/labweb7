@@ -6,3 +6,4 @@
 Проєкт використовує GitHub Actions.
 - При кожному пуші запускаються тести (`npm test`).
 - Якщо тести успішні, збирається Docker-образ і пушиться в GHCR (GitHub Container Registry).
+CI Fix
