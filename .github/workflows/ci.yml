@@ -26,8 +26,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # ЗМІНА 1: Запускаємо тести з генерацією звіту (coverage)
       - name: Run Tests
-        run: npm test
+        run: npm test -- --coverage
+
+      # ЗМІНА 2: Завантажуємо звіт як артефакт (вимога лабораторної)
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        if: always() # Виконувати, навіть якщо тести впали (щоб бачити, де саме)
+        with:
+          name: code-coverage-report
+          path: coverage/
+          retention-days: 30
 
   build-and-push:
     needs: test
@@ -51,4 +61,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ github.repository }}/lab4-app:latest
-            ghcr.io/${{ github.repository }}/lab4-app:${{ github.sha }}
+            ghcr.io/${{ github.repository }}/lab4-app:${{ github.sha }}і
