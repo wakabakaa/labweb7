@@ -61,4 +61,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/${{ github.repository }}/lab4-app:latest
-            ghcr.io/${{ github.repository }}/lab4-app:${{ github.sha }}і
+            ghcr.io/${{ github.repository }}/lab4-app:${{ github.sha }}
